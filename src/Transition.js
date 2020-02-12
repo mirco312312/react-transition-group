@@ -286,7 +286,7 @@ class Transition extends React.Component {
     // setState callbacks and unmounting in testing, so always make sure that
     // we can cancel any pending setState callbacks after we unmount.
     callback = this.setNextCallback(callback)
-    this.setState(nextState, () => setTimeout(callback))
+    this.setState(nextState, () => requestAnimationFrame(callback))
   }
 
   setNextCallback(callback) {
